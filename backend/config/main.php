@@ -17,7 +17,8 @@ return [
         'view' => [
             'theme' => [
                 'pathMap' => [
-                    '@app/views' => '@vendor/dmstr/yii2-adminlte-asset/example-views/yiisoft/yii2-app'
+                    '@app/views' => '@vendor/dmstr/yii2-adminlte-asset/example-views/yiisoft/yii2-app',
+                    '@vendor/dmstr/yii2-adminlte-asset/example-views/yiisoft/yii2-app/layouts' => '@app/views/layouts/main'
                 ],
             ],
         ],
@@ -61,7 +62,7 @@ return [
         ],
         */
     ],
-    /*'as beforeRequest' => [  // if non-authorized user access site, redirect to login page
+    'as beforeRequest' => [  // if non-authorized user access site, redirect to login page
         'class' => 'yii\filters\AccessControl',
         'rules' => [
             [
@@ -73,6 +74,6 @@ return [
                 'roles' => ['@'],
             ],
         ],
-    ],*/
+    ],
     'params' => $params,
 ];
