@@ -2,6 +2,7 @@
 
 use yii\grid\GridView;
 use yii\helpers\Html;
+use yii\widgets\ListView;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\ChannelSearch */
@@ -10,7 +11,9 @@ use yii\helpers\Html;
 $this->title = 'Channels';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="channel-index">
+
+<div class="channel-index" style="overflow: auto;
+overflow-y: hidden;">
 
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -18,18 +21,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>
         <?= Html::a('Create Channel', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
-            'title:ntext',
-            'link',
-            'description:ntext',
+    <?= ListView::widget([
+            'dataProvider' => $dataProvider,
+            'itemView' => '_list',
+        ]
+    ); ?>
 
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
 </div>

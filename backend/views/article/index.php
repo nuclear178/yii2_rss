@@ -1,7 +1,7 @@
 <?php
 
-use yii\grid\GridView;
 use yii\helpers\Html;
+use yii\widgets\ListView;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\ArticleSearch */
@@ -18,23 +18,10 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>
         <?= Html::a('Create Article', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+    <?= ListView::widget([
+            'dataProvider' => $dataProvider,
+            'itemView' => '_list',
+        ]
+    ); ?>
 
-            'id',
-            'publication_date',
-            'title:ntext',
-            'short_text:ntext',
-            'full_text:ntext',
-            // 'image_small',
-            // 'image_large',
-            // 'source',
-            // 'hash',
-
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
 </div>

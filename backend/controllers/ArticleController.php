@@ -52,6 +52,7 @@ class ArticleController extends Controller
      * Displays a single Article model.
      * @param integer $id
      * @return mixed
+     * @throws
      */
     public function actionView($id)
     {
