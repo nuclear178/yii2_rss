@@ -2,6 +2,8 @@
 
 /* @var $this yii\web\View */
 
+use yii\helpers\Url;
+
 $this->title = 'My Yii Application';
 ?>
 <div class="site-index">
@@ -11,8 +13,8 @@ $this->title = 'My Yii Application';
 
         <p class="lead">You have successfully created your Yii-powered application.</p>
 
-        <p><a class="btn btn-lg btn-success" href="/backend/web/index.php?r=channel%2Findex">Каналы</a>
-            <a class="btn btn-lg btn-success" href="/backend/web/index.php?r=article%2Findex">Статьи</a></p>
+        <p><a class="btn btn-lg btn-success" href="<?= Url::toRoute('channel/index') ?>">Каналы</a>
+            <a class="btn btn-lg btn-success" href="<?= Url::toRoute('article/index') ?>">Статьи</a></p>
     </div>
 
     <div class="body-content">
