@@ -50,19 +50,12 @@ class FeedParser
             $items[$index] = new ArticlesParsingResultItem();
             $items[$index]->setTitle($item->title);
             $items[$index]->setText($item->description);
+
             if (isset($item->pubDate)) {
-                $items[$index]->setPublicationDate(
-                    date("D, d M Y H:i:s T",
-                        strtotime($item->pubDate)
-                    )
-                );
+                $items[$index]->setPublicationDate(date("D, d M Y H:i:s T", strtotime($item->pubDate)));
             }
 
-            if (isset($item->enclosure)
-                && (strcmp($item->enclosure->type, 'image/jpg')
-                    || strcmp($item->enclosure->type, 'image/png')
-                )
-            ) {
+            if (isset($item->enclosure) && (strcmp($item->enclosure->type, 'image/jpg') || strcmp($item->enclosure->type, 'image/png'))) {
                 $items[$index]->setImageURL($item->enclosure->url);
             }
 
