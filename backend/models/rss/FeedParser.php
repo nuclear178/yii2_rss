@@ -58,7 +58,6 @@ class FeedParser
             if (isset($item->enclosure) && (strcmp($item->enclosure->type, 'image/jpg') || strcmp($item->enclosure->type, 'image/png'))) {
                 $items[$index]->setImageURL($item->enclosure->url);
             }
-
         }
         return new ArticlesParsingResult($items);
     }
